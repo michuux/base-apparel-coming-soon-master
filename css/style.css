@@ -1,0 +1,243 @@
+*,*::before,*::after{
+    box-sizing: border-box;
+}
+
+:root{
+    --primary: hsl(0, 36%, 70%);
+    --secondary: hsl(0, 6%, 24%);
+    --accent: hsl(0, 93%, 68%);
+
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 62.5%;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    font-size: 1.6rem;
+    min-width: 310px;
+    min-height: 100vh;
+    background-image: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 0%, 98%));
+    color: var(--primary);
+}
+
+.container{
+    flex-grow: 1;
+    display: grid;
+    place-items: center;
+}
+
+
+/* ------------------------------ */
+/* -----header with logo img----- */
+/* ------------------------------ */
+
+.topBar{
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4em;
+    width: 100%;
+}
+
+.topBar__logo{
+    height: 1.25em;
+    margin-left: 1.25em;
+}
+
+
+/* ------------- */
+/* -----hero---- */
+/* ------------- */
+
+.hero{
+    margin-top: 4em;
+}
+
+.hero__img{
+    display: block;
+    width: 100%;
+    margin-bottom: 2em;
+}
+
+
+/* ------------- */
+/* -----main---- */
+/* ------------- */
+
+.content{
+    text-align: center;
+    max-width: 650px;
+    padding: 0 2.25em 3em 2.25em;
+}
+
+.content__title{
+    font-size: 2.55em;
+    font-weight: 300;
+    text-transform: uppercase;
+    letter-spacing: 10px;
+    line-height: 1.1;
+    margin-bottom: 1.8rem;
+}
+
+.content__paragraph{
+    font-size: .9em;
+    line-height: 1.5;
+    margin-bottom: 2.2em;
+}
+
+
+/* ----------- */
+/* ----form--- */
+/* ----------- */
+
+form{
+    position: relative;
+}
+
+.form__input{
+    color: var(--secondary);
+    font-weight: 500;
+    padding: 1em 2.2rem;
+    border: 1px solid rgb(233, 183, 183);
+    border-radius: 25px;
+    width: 100%;
+    font-size: .75em;
+}
+
+.form__input::placeholder{
+    color: var(--primary);
+}
+
+.form__errorIcon{
+    width: 1.25em;
+    display: none;
+    position: absolute;
+    top: 50%;
+    right: 4.25em;
+    transform: translatey(-50%);
+}
+
+.form__errorMessage{
+    display: none;
+    position: absolute;
+    font-size: .7em;
+    font-weight: 600;
+    color: var(--accent);
+    padding: .65em 2.2rem;
+}
+
+.form__submit{
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+    padding: 0 2em;
+    border:none;
+    border-radius: 25px;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.15);
+    background-image: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+.form__submit:hover,
+.form__submit:focus-visible{
+    filter: brightness(1.1);
+    transform: scale(1.05);
+    box-shadow: 0 2px 6px 1px rgba(0, 0, 0, 0.2);
+}
+
+
+/* --------------- */
+/* -----media----- */
+/* --------------- */
+
+
+@media screen and (min-width:380px) {
+    body{
+        font-size: 1.8rem;
+    }
+    .content__title{
+        font-size: 2.8em;
+        margin-bottom: 3rem;
+    }
+}
+
+@media screen and (min-width:600px) {
+
+    .hero__img{
+        max-height: 60vh;
+        object-fit: cover;
+        margin-bottom: 2em;
+        object-position: center top;
+    }
+}
+
+
+@media screen and (min-width:675px) and (min-height:715px) {
+    body{
+        font-size: 1.9rem;
+        display: grid;
+        grid-template-columns: 55% 45%;
+        grid-template-areas: 
+        "content image"
+        "content image";
+    }
+
+    .container{
+        grid-area: content;
+        background-image: url(/images/bg-pattern-desktop.svg);
+        background-size: cover;
+        background-position: center;
+    }
+    .hero{
+        grid-area: image;
+        margin-top: 0;
+    }
+
+    .hero__img{
+        height: 100%;
+        max-height: 100vh;
+        object-fit:cover;
+        margin-bottom: 0em;
+    }
+
+    .content{
+        text-align: left;
+        padding-bottom: 0em;
+    }
+}
+
+@media screen and (min-width:1020px) {
+    body{
+        font-size: 2.1rem;
+    }
+}
+
+@media screen and (min-width:1650px) {
+    body{
+        font-size: 2.25rem;
+    }
+    
+    .form__submit{
+        padding: 0 3em;
+        border-radius: 32px;
+    }
+
+    .form__input{
+        border-radius: 32px;
+    }
+}
+
+@media screen and (min-width:1850px) {
+    body{
+        font-size: 2.4rem;
+    }
+}
+
+.attribution { font-size: 11px; text-align: center; }
+.attribution a { color: hsl(228, 45%, 44%); }
